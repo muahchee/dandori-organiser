@@ -126,6 +126,8 @@ header p{
 .task-list p{
   display: flex;
   gap: 20px;
+  display: flex;
+
 }
 
 .task-list label{
@@ -151,8 +153,8 @@ header p{
 input[type="checkbox"]::before {
   font-family: "pikmin";
   content: "";
-  width: 0.65rem;
-  height: 0.65rem;
+  width: 0.8rem;
+  height: 0.8rem;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1rem 1rem var(--lightest2);
@@ -174,16 +176,32 @@ button.new-task{
   cursor: pointer;
 
   transition: all .1s ease-in-out; 
+  opacity: 0.7;
 }
 
 
 button.new-task:hover,
 button.new-task:focus{
   transform: scale(1.1) translate(10px); 
+  opacity: 1;
 }
 
 button.new-task img{
 
   width: 1.5rem;
   margin-bottom: -2px;
+}
+
+button.options{
+  margin-left: auto;
+  border: none;
+  background-color: var(--darkest);
+  cursor: pointer;
+  opacity: 0.60;
+}
+
+button.options:hover,
+button.options:focus{
+  transform: scale(1.1); 
+  opacity: 1;
 }
