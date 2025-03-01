@@ -26,6 +26,10 @@ input, button, textarea, select {
   font: inherit;
 }
 
+button{
+  border: none;
+}
+
 /* 7. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
@@ -123,11 +127,11 @@ header p{
   gap: 20px;
 }
 
-.task-list p{
+.task-list .task{
   display: flex;
   gap: 20px;
   display: flex;
-
+  position: relative;
 }
 
 .task-list label{
@@ -168,7 +172,6 @@ button.new-task{
   appearance: none;
   background-color: var(--darkest);
   color: var(--light);
-  border: none;
   padding: 0;
   display: flex;
   width: 200px;
@@ -194,7 +197,6 @@ button.new-task img{
 
 button.options{
   margin-left: auto;
-  border: none;
   background-color: var(--darkest);
   cursor: pointer;
   opacity: 0.60;
@@ -204,4 +206,22 @@ button.options:hover,
 button.options:focus{
   transform: scale(1.1); 
   opacity: 1;
+}
+
+.options-menu{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--lighter);
+  color: var(--darkest);
+  width: 100px;
+
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 1;
+
+}
+
+.options-menu .delete{
+  color: var(--dark);
 }
