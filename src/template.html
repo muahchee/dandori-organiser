@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dandori Helper</title>
+  <title>Dandori Organiser</title>
 </head>
 <body>
   <div class="main-container">
@@ -40,12 +40,33 @@
     </div>
 
     <button class="new-task"><img src="img/plus.svg" alt="plus icon"> new task</button>
+    
+    <dialog>
+      <div class="dialog-wrapper">
+        <label for="input-task">New Task</label>
+        <input type="text" id="input-task" name="input-task">
+        <div>
+          <button class="cancel">Cancel</button>
+          <button class="add-task">Add</button>
+        </div>
+      </div>
+    </dialog>
+  
 
-    <!-- <div class="options-menu">
-      <button class="edit">Edit</button>
-      <button class="delete">Delete</button>
-    </div> -->
+    <script>
+      const dialog = document.querySelector("dialog");
+      const newTask = document.querySelector(".new-task");
+      const addTask = document.querySelector(".add-task");
 
+      newTask.addEventListener("click", () => {
+        dialog.showModal();
+      });
+
+      addTask.addEventListener("click", () => {
+        dialog.close();
+      });
+
+    </script>
 
   </div>
 </body>

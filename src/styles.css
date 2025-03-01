@@ -127,6 +127,8 @@ header p{
   gap: 20px;
 }
 
+/* --checkbox-- */
+
 .task-list .task{
   display: flex;
   gap: 20px;
@@ -168,6 +170,8 @@ input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
+/* --new task button-- */
+
 button.new-task{
   appearance: none;
   background-color: var(--darkest);
@@ -202,6 +206,7 @@ button.options{
   opacity: 0.60;
 }
 
+/* --options menu-- */
 button.options:hover,
 button.options:focus{
   transform: scale(1.1); 
@@ -219,9 +224,39 @@ button.options:focus{
   right: 5px;
   top: 5px;
   z-index: 1;
-
 }
 
 .options-menu .delete{
   color: var(--dark);
+}
+
+/* modal */
+::backdrop{
+  background-color: var(--darkest);
+  opacity: 0.75;
+}
+
+dialog{
+
+  background-color: var(--lightest);
+  color: var(--darkest);
+
+  /* centers */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 40px 25px;
+
+}
+
+.dialog-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dialog-wrapper div{
+  
 }
