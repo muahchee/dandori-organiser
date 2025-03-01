@@ -1,0 +1,189 @@
+@font-face {
+  font-family: pikmin;
+  src: url(./pikminneue.otf);
+}
+/* css reset */
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.6;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* 6. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.italic{
+  font-style: italic;
+}
+
+/* main css */
+
+*{
+--darkest: #0c2f45;
+--dark: #cc4149;
+--light: #60d0f5;
+--lighter: #d8ffff;
+--lightest: #f9ffce;
+--lightest2: #e4bc2f;
+}
+
+
+body{
+  font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--darkest);
+  color: var(--light);
+  padding: 2vw;
+  font-size: 1.3rem;
+  height: 100%;
+}
+
+.main-container{
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
+
+  width: min(800px, 100vw);
+  height: 100%;
+  background-color: var(--darkest);
+  border: 3px solid var(--light);
+  border-radius: 5px;
+  padding: min(40px, 6vw);
+
+}
+
+header{
+  text-align: center;
+}
+
+h1{
+  margin-bottom: 10px;
+}
+
+h1 span{
+  color: transparent;
+  font-size: 2.5rem;
+  font-family: "pikmin";
+  background-image: linear-gradient(to top, var(--lightest2) 45%, var(--lightest) 60%);
+  background-clip: text;
+  padding: 5px;
+}
+
+header p{
+  background-color: var(--light);
+  color: var(--darkest);
+}
+
+.task-list{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.task-list p{
+  display: flex;
+  gap: 20px;
+}
+
+.task-list label{
+  cursor: pointer;
+}
+
+.task-list input[type="checkbox"]{
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  min-width: 25px;
+  height: 25px;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(0.3em);
+  cursor: pointer;
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  font-family: "pikmin";
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1rem 1rem var(--lightest2);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+button.new-task{
+  appearance: none;
+  background-color: var(--darkest);
+  color: var(--light);
+  border: none;
+  padding: 0;
+  display: flex;
+  width: 200px;
+  gap: 10px;
+  cursor: pointer;
+
+  transition: all .1s ease-in-out; 
+}
+
+
+button.new-task:hover,
+button.new-task:focus{
+  transform: scale(1.1) translate(10px); 
+}
+
+button.new-task img{
+
+  width: 1.5rem;
+  margin-bottom: -2px;
+}
