@@ -1,6 +1,6 @@
 import Sortable from "sortablejs";
 import "./styles.css";
-
+import "/"
 
 
 const list = document.querySelector(".task-list")
