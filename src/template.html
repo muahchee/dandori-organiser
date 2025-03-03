@@ -12,43 +12,56 @@
       <p class="italic bold">"Steady progress is also good Dandori."</p>
     </header>
 
-    <div class="task-list">
-      <div class="task">
+  <div class="task-list">
+    <div class="task">
 
-        <input type="checkbox" id="hello" name="hello">
+      <input type="checkbox" id="hello" name="hello">
 
-        <label for="hello">work out style and html</label>
+      <label for="hello">work out style and html</label>
 
-        <button class="options"><img src="img/menu.svg" alt="menu icon"></button> 
+      <button class="options"><img src="img/menu.svg" alt="menu icon"></button> 
 
-        <dialog class="options-menu">
+      <div class="options-menu">
 
-          <div>
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-          </div>
-
-        </dialog>
-
+        <button class="edit">Edit</button>
+        <button class="delete">Delete</button>
+        
       </div>
-  
 
-    <script>
-      const dialog = document.querySelector("dialog");
-      const newTask = document.querySelector(".new-task");
-      const addTask = document.querySelector(".add-task");
-
-      newTask.addEventListener("click", () => {
-        dialog.showModal();
-      });
-
-      addTask.addEventListener("click", () => {
-        dialog.close();
-      });
-      
-
-    </script>
-
+    </div>
   </div>
+
+  <!-- new task btn -->
+  <div class="new-btn-container">
+    <button class="new-task"><img src="img/plus.svg" alt="plus icon"> new task</button>
+  </div>
+
+  <dialog class="new">
+    <div class="dialog-wrapper">
+      <label for="input-task">New Task</label>
+      <input type="text" id="input-task" name="input-task">
+      <div>
+        <button class="cancel">Cancel</button>
+        <button class="add-task">Add</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const dialog = document.querySelector("dialog.new");
+    const newTask = document.querySelector(".new-task");
+    const addTask = document.querySelector(".add-task");
+
+    newTask.addEventListener("click", () => {
+      dialog.showModal();
+    });
+
+    addTask.addEventListener("click", () => {
+      dialog.close();
+    });
+
+ 
+  </script>
+
 </body>
 </html>

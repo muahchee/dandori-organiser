@@ -213,22 +213,18 @@ button.options:focus{
   opacity: 1;
 }
 
-dialog.options-menu{
-
+.options-menu{
+  display: flex;
+  flex-direction: column;
   background-color: var(--lighter);
   color: var(--darkest);
   width: 100px;
+  visibility: hidden;
 
   position: absolute;
   right: 5px;
   top: 5px;
   z-index: 1;
-}
-
-.options-menu div{
-  display: flex;
-  flex-direction: column;
-  width: 100px;
 }
 
 .options-menu .delete{
@@ -241,7 +237,7 @@ dialog.options-menu{
   opacity: 0.75;
 }
 
-dialog.new{
+dialog{
 
   background-color: var(--lightest);
   color: var(--darkest);
