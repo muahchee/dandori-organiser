@@ -12,5 +12,5 @@ new Sortable(list, {
 
 //create a task item
 
-new Task("Second test task").createTask()
+new Task("Second test task early ios low featured asdfjasdklfjasd;lfjasdklfjlasdjflasdjfjaskdlfj;lasdjfk").createTask()
 new Task("Wow it works!!!").createTask()

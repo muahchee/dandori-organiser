@@ -22,28 +22,22 @@ export class Task {
 
     this.optionBtn = document.createElement("button");
     this.optionBtn.setAttribute("class", "options");
-    //"optionInsideClick" is to allow option window to close when clicking outside, prevent inside clicks from closeing the window
-    this.optionBtn.setAttribute("optionInsideClick", true);
 
     this.optionIcon = document.createElement("img");
     this.optionIcon.src = optionImg;
     this.optionIcon.setAttribute("alt", "menu icon");
-    this.optionIcon.setAttribute("optionInsideClick", true);
 
     //options menu
     this.optionMenu = document.createElement("div");
     this.optionMenu.setAttribute("class", "options-menu");
-    this.optionMenu.setAttribute("optionInsideClick", true);
 
     this.editBtn = document.createElement("button");
     this.editBtn.setAttribute("class", "edit");
     this.editBtn.textContent = "Edit";
-    this.editBtn.setAttribute("optionInsideClick", true);
 
     this.deleteBtn = document.createElement("button");
     this.deleteBtn.setAttribute("class", "delete");
     this.deleteBtn.textContent = "Delete";
-    this.deleteBtn.setAttribute("optionInsideClick", true);
 
   }
 
@@ -55,14 +49,12 @@ export class Task {
     .toLowerCase()
     .split(" ")
     .join("-");
-  }
+  };
 
-  _outsideClick(element){
-    document.addEventListener("click", e => {
-      if (!element.contains(e.target)) {
-        element.style.visibility = "hidden"
-      }
-    })
+  _outsideClicks(e){
+    if (e.target.parentNode != this.optionBtn && e.target.parentNode != this.optionMenu){
+      return  this.optionMenu.style.visibility = "hidden";
+    };
   }
 
   //--public interfaces--
@@ -74,7 +66,7 @@ export class Task {
     this.task.appendChild(this.optionBtn);
     this.task.appendChild(this.optionMenu)
 
-    this.optionBtn.appendChild(this.optionIcon)
+    this.optionBtn.appendChild(this.optionIcon);
 
     this.optionMenu.appendChild(this.editBtn);
     this.optionMenu.appendChild(this.deleteBtn);
@@ -85,10 +77,11 @@ export class Task {
     });
 
     //close option menu
+    //detect "outside clicks"
     document.addEventListener("click", e => {
-      if (!e.target.getAttribute("optionInsideClick")){
+      if (e.target.parentNode != this.optionBtn && e.target.parentNode != this.optionMenu){
         this.optionMenu.style.visibility = "hidden";
-      }
-    })
-  }
-}
+      };
+    });
+  };
+};

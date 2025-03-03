@@ -67,6 +67,8 @@ h1, h2, h3, h4, h5, h6 {
 --lighter: #d8ffff;
 --lightest: #f9ffce;
 --lightest2: #e4bc2f;
+
+--light-shadow: #60d0f570;
 }
 
 
@@ -84,11 +86,15 @@ body{
   height: 100%;
 }
 
+label, button{
+  text-shadow: 0 0 15px var(--light-shadow);
+}
+
 .main-container{
   display: flex;
   flex-direction: column;
 
-  gap: 40px;
+  gap: 50px;
 
   width: min(800px, 100vw);
   height: 100%;
@@ -96,6 +102,8 @@ body{
   border: 3px solid var(--light);
   border-radius: 5px;
   padding: min(40px, 6vw);
+
+  box-shadow: 0px 0px 20px 5px var(--light-shadow);
 
 }
 
@@ -138,6 +146,8 @@ header p{
 
 .task-list label{
   cursor: pointer;
+  /* transform: translateY(5px); */
+
 }
 
 .task-list input[type="checkbox"]{
@@ -149,7 +159,7 @@ header p{
   height: 25px;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
-  transform: translateY(0.3em);
+  /* transform: translateY(0.3em); */
   cursor: pointer;
 
   display: grid;
@@ -204,6 +214,7 @@ button.options{
   background-color: var(--darkest);
   cursor: pointer;
   opacity: 0.60;
+  height: 25px;
 }
 
 /* --options menu-- */
