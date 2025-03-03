@@ -14,43 +14,23 @@
 
     <div class="task-list">
       <div class="task">
-        <input type="checkbox" id="hello" name="hello">
-        <label for="hello">work out style and html</label>
-        <button class="options"><img src="img/menu.svg" alt="menu icon"></button> 
-        <div class="options-menu">
-          <button class="edit">Edit</button>
-          <button class="delete">Delete</button>
-        </div>
-      </div>
-      <div class="task">
-        <input type="checkbox" id="dandori" name="dandori">
-        <label for="dandori">use javascript to make new task objects</label>
-        <button class="options"><img src="img/menu.svg" alt="menu icon"></button> 
-      </div>
-      <div class="task">
-        <input type="checkbox" id="byebye" name="byebye">
-        <label for="byebye">add edit function</label>
-        <button class="options"><img src="img/menu.svg" alt="menu icon"></button> 
-      </div>
-      <div class="task">
-        <input type="checkbox" id="byebye" name="byebye">
-        <label for="byebye">add delete function</label>
-        <button class="options"><img src="img/menu.svg" alt="menu icon"></button> 
-      </div>
-    </div>
 
-    <button class="new-task"><img src="img/plus.svg" alt="plus icon"> new task</button>
-    
-    <dialog>
-      <div class="dialog-wrapper">
-        <label for="input-task">New Task</label>
-        <input type="text" id="input-task" name="input-task">
-        <div>
-          <button class="cancel">Cancel</button>
-          <button class="add-task">Add</button>
-        </div>
+        <input type="checkbox" id="hello" name="hello">
+
+        <label for="hello">work out style and html</label>
+
+        <button class="options"><img src="img/menu.svg" alt="menu icon"></button> 
+
+        <dialog class="options-menu">
+
+          <div>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+
+        </dialog>
+
       </div>
-    </dialog>
   
 
     <script>
@@ -65,6 +45,7 @@
       addTask.addEventListener("click", () => {
         dialog.close();
       });
+      
 
     </script>
 
