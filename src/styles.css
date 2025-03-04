@@ -269,6 +269,6 @@ dialog{
   gap: 30px;
 }
 
-.dialog-wrapper div{
-  
+button.cancel{
+  margin-right: 10px;
 }

@@ -21,7 +21,7 @@
     <button class="new-task"><img src="img/plus.svg" alt="plus icon"> new task</button>
   </div>
 
-  <dialog class="new">
+  <dialog>
     <div class="dialog-wrapper">
       <label for="input-task">New Task</label>
       <input type="text" id="input-task" name="input-task">
@@ -33,7 +33,7 @@
   </dialog>
 
   <script>
-    const dialog = document.querySelector("dialog.new");
+    const dialog = document.querySelector("dialog");
     const newTask = document.querySelector(".new-task");
     const addTask = document.querySelector(".add-task");
 

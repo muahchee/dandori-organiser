@@ -1,9 +1,14 @@
 import optionImg from "../img/menu.svg"
 
+import { Dialog } from "./dialog.js";
+import { dialogOpen } from "./dialogState.js";
 import { checkboxStates } from "./checkboxStates.js";
+
 
 export class Task {
   constructor (taskContent){
+
+    this.dialog = new Dialog().createDialog();
 
     this.taskContent = taskContent;
     this.formattedTaskContent = this._format(this.taskContent)
@@ -60,6 +65,7 @@ export class Task {
 
   //--public interfaces--
   createTask(){
+
     this.taskList.appendChild(this.task);
 
     this.task.appendChild(this.input);
@@ -86,5 +92,7 @@ export class Task {
     });
 
     checkboxStates(this.input, this.label);
+
+    dialogOpen(this.editBtn, this.dialog)
   };
 };
