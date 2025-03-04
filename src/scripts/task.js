@@ -1,5 +1,7 @@
 import optionImg from "../img/menu.svg"
 
+import { checkboxStates } from "./checkboxStates.js";
+
 export class Task {
   constructor (taskContent){
 
@@ -82,5 +84,7 @@ export class Task {
         this.optionMenu.style.visibility = "hidden";
       };
     });
+
+    checkboxStates(this.input, this.label);
   };
 };

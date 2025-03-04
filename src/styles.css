@@ -146,7 +146,7 @@ header p{
 
 .task-list label{
   cursor: pointer;
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   hyphens: auto;
 }
 
@@ -159,7 +159,7 @@ header p{
   height: 25px;
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
-  /* transform: translateY(0.3em); */
+  transform: translateY(5px);
   cursor: pointer;
 
   display: grid;
