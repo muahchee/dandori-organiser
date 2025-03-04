@@ -44,7 +44,6 @@ export class Task {
   //--private interfaces--
   _format(string){
     //split the taskContent string by spaces and join together with "-"
-
     return string
     .toLowerCase()
     .split(" ")

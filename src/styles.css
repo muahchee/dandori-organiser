@@ -146,8 +146,8 @@ header p{
 
 .task-list label{
   cursor: pointer;
-  /* transform: translateY(5px); */
-
+  transform: translateY(-5px);
+  hyphens: auto;
 }
 
 .task-list input[type="checkbox"]{
