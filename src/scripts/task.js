@@ -1,5 +1,7 @@
 import optionImg from "../img/menu.svg"
 
+import { pikminOptions } from "./pikmin-noises.js";
+
 import { Dialog } from "./dialog.js";
 import { dialogOpen } from "./dialogState.js";
 import { checkboxStates } from "./checkboxStates.js";
@@ -80,7 +82,11 @@ export class Task {
 
     //open option menu
     this.optionBtn.addEventListener("click", () => {
+
       this.optionMenu.style.visibility = "visible";
+
+      pikminOptions.play();
+      
     });
 
     //close option menu
