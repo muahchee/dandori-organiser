@@ -5,12 +5,14 @@ import { pikminOptions } from "./pikmin-noises.js";
 import { Dialog } from "./dialog.js";
 import { dialogOpen } from "./dialogState.js";
 import { checkboxStates } from "./checkboxStates.js";
+import { editTask } from "./editTask.js";
 
 
 export class Task {
   constructor (taskContent){
 
     this.dialog = new Dialog().createDialog();
+    this.newLabel = this.dialog.getInputText
 
     this.taskContent = taskContent;
     this.formattedTaskContent = this._format(this.taskContent)
@@ -100,5 +102,13 @@ export class Task {
     checkboxStates(this.input, this.label);
 
     dialogOpen(this.editBtn, this.dialog)
+
+    //editing label after clicking proceed
+    //i dont thing this should be the task's responsibility. need to seperate this somehow...
+
+    this.dialogProceedBtn = this.dialog.querySelector("button.proceed");
+
+    editTask(this.dialogProceedBtn, this.label, this.dialog.querySelector("#input-task"));
+
   };
 };

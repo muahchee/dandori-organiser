@@ -29,6 +29,7 @@ export class Dialog {
 
     this.proceedButton = document.createElement("button");
     this.proceedButton.setAttribute("class", "proceed");
+    this.proceedButton.setAttribute("type", "submit");
     this.proceedButton.textContent = "Proceed";
   }
 
@@ -45,10 +46,13 @@ export class Dialog {
     this.buttonWrapper.appendChild(this.cancelButton);
     this.buttonWrapper.appendChild(this.proceedButton);
 
+    //cancel button closes dialog
     dialogClose(this.cancelButton, this.dialog);
+
 
     return this.dialog
 
   }
+
 
 }
