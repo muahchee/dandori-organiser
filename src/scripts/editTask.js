@@ -1,19 +1,17 @@
 //handle editing tasks after pressing "proceed"
 
-export function editTask(button, taskLabel, newLabel) {
+export function editTask(form, taskLabel) {
 
-  button.addEventListener("click", () => {
+  form.addEventListener("submit", () => {
 
-    taskLabel.textContent = newLabel.value;
+    const taskFormData = new FormData(form);
 
+    for (const [key, value] of taskFormData) {
+      taskLabel.textContent = value;
+    }
+    
     //reset the user input
-    newLabel.value = ""
-
-    //selecting the dialog
-    //(!!!very dependent!! very dependent on html structure, need to change later!)
-    const dialog = button.parentNode.parentNode.parentNode;
-
-    dialog.close();
+    form.reset();
 
   });
 

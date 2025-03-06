@@ -9,8 +9,9 @@ export class Dialog {
 
     this.dialog = document.createElement("dialog");
 
-    this.dialogWrapper = document.createElement("div");
+    this.dialogWrapper = document.createElement("form");
     this.dialogWrapper.setAttribute("class", "dialog-wrapper");
+    this.dialogWrapper.setAttribute("method", "dialog");
 
     this.taskNameLabel = document.createElement("label");
     this.taskNameLabel.textContent = "New task name, please!"
@@ -25,6 +26,7 @@ export class Dialog {
 
     this.cancelButton = document.createElement("button");
     this.cancelButton.setAttribute("class", "cancel");
+    this.cancelButton.setAttribute("type", "button");
     this.cancelButton.textContent = "Cancel"
 
     this.proceedButton = document.createElement("button");

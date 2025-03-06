@@ -108,7 +108,9 @@ export class Task {
 
     this.dialogProceedBtn = this.dialog.querySelector("button.proceed");
 
-    editTask(this.dialogProceedBtn, this.label, this.dialog.querySelector("#input-task"));
+    console.log(this.dialog.firstChild)
+
+    editTask(this.dialog.firstChild, this.label);
 
   };
 };
