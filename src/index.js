@@ -38,14 +38,6 @@ Sortable.create(list, {
 console.log(localStorage)
 
 
-// create a task item, will delete this at the end
-
-new TaskDOM("Second test task early ios low featured asdfjas dklfjasd;lfja sdklfjlasdjfla sdjf jaskd lfj; lasdjfk").createTask()
-new TaskDOM("Wow it works!!!").createTask()
-
-// localStorage.setItem("stored-tasks", [])
-
-
 //--new task button--
 
 const newTaskBtn = document.querySelector("button.new-task");
@@ -54,7 +46,14 @@ const newTaskDialog = new Dialog().createDialog();
 
 dialogOpen(newTaskBtn, newTaskDialog);
 
-new TaskCreator(newTaskDialog.firstChild, "stored-tasks").newTask();
+//add event listener to new task dialog form
+new TaskCreator(newTaskDialog.firstChild).newTask();
+
+
+//initial task
+new TaskCreator (newTaskDialog.firstChild).initialTask();
+
+
 
 
 //!!need to create a function to "reorder" task-list items based on id number, but maybe that wont be necessary once in get the new task button running. Since it'll be writing directly onto the DOM

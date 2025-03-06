@@ -4,15 +4,25 @@ import { TaskStorage } from "./taskStorage.js";
 
 export class TaskCreator {
 
-  constructor(form, localStorageIndex) {
+  constructor(form) {
 
     this.form = form;
-
-    this.localStorageIndex = localStorageIndex;
 
   }
 
   // --public--
+
+  initialTask() {
+    this.firstTaskText = "First Task!"
+
+    this.firstTask = new TaskDOM("First Task!").createTask();
+
+    //make sure this initial task only gets stored once
+    if (localStorage.getItem("1") == "" || !localStorage.getItem("1")){
+      new TaskStorage(this.firstTask, this.firstTaskText, this.localStorageIndex).storeTask()
+    }
+
+  }
   
   newTask() {
 
@@ -30,7 +40,7 @@ export class TaskCreator {
         
         //storing into local storage
 
-        new TaskStorage(taskdom, value, this.localStorageIndex).storeTask()
+        new TaskStorage(taskdom, value).storeTask()
   
       }
   
