@@ -1,11 +1,11 @@
 import Sortable from "sortablejs";
 import "./styles.css";
-import { Task } from "./scripts/task.js";
+import { TaskDOM } from "./scripts/taskDOM.js";
 
 import { dialogOpen } from "./scripts/dialogState.js";
 import { Dialog } from "./scripts/dialog.js";
 
-import { createTask } from "./scripts/newTask.js";
+import { TaskCreator } from "./scripts/taskCreator.js";
 
 
 //make list sortable
@@ -13,7 +13,7 @@ const list = document.querySelector(".task-list")
 
 Sortable.create(list, {
   animation: 150,
-	group: "task-list",
+	group: "task-list-order",
 	store: {
 		/**
 		 * Get the order of elements. Called once during initialization.
@@ -38,10 +38,12 @@ Sortable.create(list, {
 console.log(localStorage)
 
 
-//create a task item, will delete this at the end
+// create a task item, will delete this at the end
 
-// new Task("Second test task early ios low featured asdfjas dklfjasd;lfja sdklfjlasdjfla sdjf jaskd lfj; lasdjfk").createTask()
-// new Task("Wow it works!!!").createTask()
+new TaskDOM("Second test task early ios low featured asdfjas dklfjasd;lfja sdklfjlasdjfla sdjf jaskd lfj; lasdjfk").createTask()
+new TaskDOM("Wow it works!!!").createTask()
+
+// localStorage.setItem("stored-tasks", [])
 
 
 //--new task button--
@@ -52,7 +54,7 @@ const newTaskDialog = new Dialog().createDialog();
 
 dialogOpen(newTaskBtn, newTaskDialog);
 
-createTask(newTaskDialog.firstChild);
+new TaskCreator(newTaskDialog.firstChild, "stored-tasks").newTask();
 
 
 //!!need to create a function to "reorder" task-list items based on id number, but maybe that wont be necessary once in get the new task button running. Since it'll be writing directly onto the DOM

@@ -9,7 +9,7 @@ import { checkboxStates } from "./checkboxStates.js";
 import { editTask } from "./editTask.js";
 
 
-export class Task {
+export class TaskDOM {
   constructor (taskContent){
 
     this.dialog = new Dialog().createDialog();
@@ -17,7 +17,6 @@ export class Task {
 
     this.taskContent = taskContent;
     this.formattedTaskContent = this._format(this.taskContent)
-
 
     this.taskList = document.querySelector(".task-list");
 
@@ -84,7 +83,7 @@ export class Task {
     this.optionMenu.appendChild(this.editBtn);
     this.optionMenu.appendChild(this.deleteBtn);
 
-     //give number id to each task item   
+    //give number id to each task item   
     this.taskIndex = Array.from(this.taskList.childNodes).indexOf(this.task)
 
     this.task.setAttribute("data-id", this.taskIndex);
@@ -115,5 +114,7 @@ export class Task {
 
     editTask(this.dialog.firstChild, this.label);
 
+
+    return this.taskIndex
   };
 };
