@@ -5,6 +5,7 @@ import { pikminOptions } from "./pikmin-noises.js";
 import { Dialog } from "./dialog.js";
 import { dialogOpen } from "./dialogState.js";
 import { checkboxStates } from "./checkboxStates.js";
+
 import { editTask } from "./editTask.js";
 
 
@@ -16,6 +17,7 @@ export class Task {
 
     this.taskContent = taskContent;
     this.formattedTaskContent = this._format(this.taskContent)
+
 
     this.taskList = document.querySelector(".task-list");
 
@@ -82,6 +84,11 @@ export class Task {
     this.optionMenu.appendChild(this.editBtn);
     this.optionMenu.appendChild(this.deleteBtn);
 
+     //give number id to each task item   
+    this.taskIndex = Array.from(this.taskList.childNodes).indexOf(this.task)
+
+    this.task.setAttribute("data-id", this.taskIndex);
+
     //open option menu
     this.optionBtn.addEventListener("click", () => {
 
@@ -105,10 +112,6 @@ export class Task {
 
     //editing label after clicking proceed
     //i dont thing this should be the task's responsibility. need to seperate this somehow...
-
-    this.dialogProceedBtn = this.dialog.querySelector("button.proceed");
-
-    console.log(this.dialog.firstChild)
 
     editTask(this.dialog.firstChild, this.label);
 
