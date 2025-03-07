@@ -37,6 +37,10 @@ Sortable.create(list, {
 })
 console.log(localStorage)
 
+//localstorage key name
+
+const taskStorageKey = "stored-tasks"
+
 
 //--new task button--
 
@@ -47,11 +51,11 @@ const newTaskDialog = new Dialog().createDialog();
 dialogOpen(newTaskBtn, newTaskDialog);
 
 //add event listener to new task dialog form
-new TaskCreator(newTaskDialog.firstChild).newTask();
+new TaskCreator(newTaskDialog.firstChild, taskStorageKey).newTask();
 
 
 //initial task
-new TaskCreator (newTaskDialog.firstChild).initialTask();
+new TaskCreator (newTaskDialog.firstChild, taskStorageKey).initialTask();
 
 
 
