@@ -21,7 +21,7 @@ export class TaskCreator {
 
     //make sure this initial task only gets stored once
     if (localStorage.getItem("1") == "" || !localStorage.getItem("1")){
-      new TaskStorage(this.firstTask, this.firstTaskText, this.storageKey).storeTask()
+      // new TaskStorage(this.firstTask, this.firstTaskText, this.storageKey).storeTask()
     }
 
   }
