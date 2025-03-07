@@ -31,9 +31,6 @@ new TaskCreator(newTaskDialog.firstChild, taskStorageKey).initialTask();
 //restoring tasks from local storage
 new TaskRestorer(taskStorageKey).restoreTasks();
 
-//editing task after pressing submit in dialog form
-console.log(document.querySelector(".main-container").querySelector("dialog"))
-
 
 //this need to be at the bottom so the restored order isnt overwritten!!
 const sortedList = Sortable.create(list, {
@@ -60,6 +57,4 @@ const sortedList = Sortable.create(list, {
 		}
 	}
 })
-console.log(localStorage)
-console.log(sortedList)
 

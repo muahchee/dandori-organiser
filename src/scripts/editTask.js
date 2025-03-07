@@ -11,19 +11,26 @@ export function editTask(form, taskLabel) {
 
     let newLabel;
 
-    //EDIT DOM  
-    for (const [key, value] of taskFormData) {
-      taskLabel.textContent = value;
+       for (const [key, value] of taskFormData) {
+  
+        newLabel = value;
 
-      newLabel = value;
-    }
+      }
+
+    //EDIT STORAGE
+
+
+    new TaskStorage("", newLabel, taskStorageKey, taskLabel).editStoredTask()
+
+    //edit dom
+
+    taskLabel.textContent = newLabel;
+ 
     
     //reset the user input
     form.reset();
 
-    //EDIT STORAGE
-
-    new TaskStorage(taskLabel, newLabel, taskStorageKey).editStoredTask()
+    
 
   });
 
