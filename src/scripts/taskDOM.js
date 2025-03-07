@@ -68,6 +68,15 @@ export class TaskDOM {
     };
   }
 
+  _makeUniqueID(){
+
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+
+  }
+
   //--public interfaces--
   createTask(){
 
@@ -83,8 +92,8 @@ export class TaskDOM {
     this.optionMenu.appendChild(this.editBtn);
     this.optionMenu.appendChild(this.deleteBtn);
 
-    //give number id to each task item   
-    this.taskIndex = Array.from(this.taskList.childNodes).indexOf(this.task)
+    //--give unique number id to each task item-- 
+    this.taskIndex = this._makeUniqueID();
 
     this.task.setAttribute("data-id", this.taskIndex);
 
