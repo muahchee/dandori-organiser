@@ -17,7 +17,15 @@ export class TaskCreator {
   initialTask() {
     this.firstTaskText = "First Task!"
 
-    this.firstTask = new TaskDOM("First Task!").createTask();
+    //prevents duplicate first tasks
+    if (localStorage.getItem(this.storageKey) === null){
+
+      this.firstTask = new TaskDOM("First Task!").createTask();
+
+      new TaskStorage("first", "First Task!", this.storageKey).storeTask();
+
+    }
+
 
   }
   

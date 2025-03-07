@@ -27,4 +27,10 @@ export class TaskStorage {
 
   }
 
+  editStoredTask() {
+
+    console.log(JSON.parse(localStorage.getItem(this.storageKey)))
+
+  }
+
 }

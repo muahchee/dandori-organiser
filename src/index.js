@@ -8,35 +8,32 @@ import { TaskCreator } from "./scripts/taskCreator.js";
 
 import { TaskRestorer } from "./scripts/taskRestorer.js";
 
+import { taskStorageKey } from "./scripts/taskStorageKey.js";
 
-//make list sortable
+//----------------------------//
+
 const list = document.querySelector(".task-list")
 
-
-
-//localstorage key name
-
-const taskStorageKey = "stored-tasks"
-
-
 //--new task button--
-
 const newTaskBtn = document.querySelector("button.new-task");
 
 const newTaskDialog = new Dialog().createDialog();
 
 dialogOpen(newTaskBtn, newTaskDialog);
 
+
 //add event listener to new task dialog form
 new TaskCreator(newTaskDialog.firstChild, taskStorageKey).newTask();
-
 
 //initial task
 new TaskCreator(newTaskDialog.firstChild, taskStorageKey).initialTask();
 
 //restoring tasks from local storage
-
 new TaskRestorer(taskStorageKey).restoreTasks();
+
+//editing task after pressing submit in dialog form
+console.log(document.querySelector(".main-container").querySelector("dialog"))
+
 
 //this need to be at the bottom so the restored order isnt overwritten!!
 const sortedList = Sortable.create(list, {

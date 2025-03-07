@@ -13,7 +13,6 @@ export class TaskDOM {
   constructor (taskContent){
 
     this.dialog = new Dialog().createDialog();
-    this.newLabel = this.dialog.getInputText
 
     this.taskContent = taskContent;
     this.formattedTaskContent = this._format(this.taskContent)
@@ -98,7 +97,8 @@ export class TaskDOM {
     this.optionMenu.appendChild(this.editBtn);
     this.optionMenu.appendChild(this.deleteBtn);
 
-    //--give unique number id to each task item-- 
+    //--give unique number id to each task item--
+    //to be used as the key for storage 
     this.taskIndex = this._makeUniqueID();
 
 
