@@ -66,6 +66,3 @@ const sortedList = Sortable.create(list, {
 console.log(localStorage)
 console.log(sortedList)
 
-//!!need to create a function to "reorder" task-list items based on id number, but maybe that wont be necessary once in get the new task button running. Since it'll be writing directly onto the DOM
-
-

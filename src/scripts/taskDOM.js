@@ -101,7 +101,6 @@ export class TaskDOM {
     //--give unique number id to each task item-- 
     this.taskIndex = this._makeUniqueID();
 
-    this.task.setAttribute("data-id", this.taskIndex);
 
     //open option menu
     this.optionBtn.addEventListener("click", () => {

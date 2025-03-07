@@ -19,14 +19,6 @@ export class TaskCreator {
 
     this.firstTask = new TaskDOM("First Task!").createTask();
 
-    //remove data-id from first task
-
-    const taskList = document.querySelector(".task-list");
-
-    const taskInDOM = taskList.querySelector(`div[data-id=${this.firstTask}]`);
-
-    taskInDOM.setAttribute("data-id", "first")
-
   }
   
   newTask() {

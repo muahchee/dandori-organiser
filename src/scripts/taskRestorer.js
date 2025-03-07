@@ -24,9 +24,7 @@ export class TaskRestorer {
 
       const taskInDOM = taskList.querySelector(`div[data-id=${task}]`);
 
-      taskInDOM.setAttribute("data-id", key)
 
-      console.log("id in dom = " + taskInDOM.getAttribute("data-id"))
       console.log("key in storage = " + key);
       console.log("task = " + task)
       console.log("------")
