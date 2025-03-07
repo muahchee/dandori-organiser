@@ -1,41 +1,18 @@
 import Sortable from "sortablejs";
 import "./styles.css";
-import { TaskDOM } from "./scripts/taskDOM.js";
 
 import { dialogOpen } from "./scripts/dialogState.js";
 import { Dialog } from "./scripts/dialog.js";
 
 import { TaskCreator } from "./scripts/taskCreator.js";
 
+import { TaskRestorer } from "./scripts/taskRestorer.js";
+
 
 //make list sortable
 const list = document.querySelector(".task-list")
 
-Sortable.create(list, {
-  animation: 150,
-	group: "task-list-order",
-	store: {
-		/**
-		 * Get the order of elements. Called once during initialization.
-		 @param   {Sortable}  sortable
-		 @returns {Array}
-		 */
-		get: function (sortable) {
-			let order = localStorage.getItem(sortable.options.group.name);
-			return order ? order.split('|') : [];
-		},
 
-		/**
-		 * Save the order of elements. Called onEnd (when the item is dropped).
-		 @param {Sortable}  sortable
-		 */
-		set: function (sortable) {
-			let order = sortable.toArray();
-			localStorage.setItem(sortable.options.group.name, order.join('|'));
-		}
-	}
-})
-console.log(localStorage)
 
 //localstorage key name
 
@@ -55,10 +32,39 @@ new TaskCreator(newTaskDialog.firstChild, taskStorageKey).newTask();
 
 
 //initial task
-new TaskCreator (newTaskDialog.firstChild, taskStorageKey).initialTask();
+new TaskCreator(newTaskDialog.firstChild, taskStorageKey).initialTask();
 
+//restoring tasks from local storage
 
+new TaskRestorer(taskStorageKey).restoreTasks();
 
+//this need to be at the bottom so the restored order isnt overwritten!!
+const sortedList = Sortable.create(list, {
+  animation: 150,
+	group: "task-list-order",
+	store: {
+		/**
+		 * Get the order of elements. Called once during initialization.
+		 * @param   {Sortable}  sortable
+		 * @returns {Array}
+		 */
+		get: function (sortable) {
+			let order = localStorage.getItem(sortable.options.group.name);
+			return order ? order.split('|') : [];
+		},
+
+		/**
+		 * Save the order of elements. Called onEnd (when the item is dropped).
+		 * @param {Sortable}  sortable
+		 */
+		set: function (sortable) {
+			let order = sortable.toArray();
+			localStorage.setItem(sortable.options.group.name, order.join('|'));
+		}
+	}
+})
+console.log(localStorage)
+console.log(sortedList)
 
 //!!need to create a function to "reorder" task-list items based on id number, but maybe that wont be necessary once in get the new task button running. Since it'll be writing directly onto the DOM
 

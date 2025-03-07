@@ -19,10 +19,13 @@ export class TaskCreator {
 
     this.firstTask = new TaskDOM("First Task!").createTask();
 
-    //make sure this initial task only gets stored once
-    if (localStorage.getItem("1") == "" || !localStorage.getItem("1")){
-      // new TaskStorage(this.firstTask, this.firstTaskText, this.storageKey).storeTask()
-    }
+    //remove data-id from first task
+
+    const taskList = document.querySelector(".task-list");
+
+    const taskInDOM = taskList.querySelector(`div[data-id=${this.firstTask}]`);
+
+    taskInDOM.setAttribute("data-id", "first")
 
   }
   

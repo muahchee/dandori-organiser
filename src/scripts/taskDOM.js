@@ -71,8 +71,14 @@ export class TaskDOM {
   _makeUniqueID(){
 
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
+        let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+
+        const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+        //makes the id number start with a letter, can select when it starts with a number;;;;
+        let id = v.toString(16).replace(/[0-9]/, alphabet[Math.floor(Math.random() * alphabet.length)]);
+
+        return id
     });
 
   }
