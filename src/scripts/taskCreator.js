@@ -1,6 +1,7 @@
 
 import { TaskDOM } from "./taskDOM.js";
 import { TaskStorage } from "./taskStorage.js";
+import { taskStorageKey } from "./taskStorageKey.js";
 
 export class TaskCreator {
 
@@ -8,7 +9,7 @@ export class TaskCreator {
 
     this.form = form;
 
-    this.storageKey = storageKey;
+    this.storageKey = taskStorageKey;
 
   }
 
@@ -23,9 +24,7 @@ export class TaskCreator {
       this.firstTask = new TaskDOM("First Task!").createTask();
 
       new TaskStorage("first", "First Task!", this.storageKey).storeTask();
-
     }
-
 
   }
   

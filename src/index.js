@@ -24,13 +24,13 @@ dialogOpen(newTaskBtn, newTaskDialog);
 
 
 //add event listener to new task dialog form
-new TaskCreator(newTaskDialog.firstChild, taskStorageKey).newTask();
+new TaskCreator(newTaskDialog.firstChild).newTask();
 
 //initial task
-new TaskCreator(newTaskDialog.firstChild, taskStorageKey).initialTask();
+new TaskCreator(newTaskDialog.firstChild).initialTask();
 
 //restoring tasks from local storage
-new TaskRestorer(taskStorageKey).restoreTasks();
+new TaskRestorer().restoreTasks();
 
 
 //this need to be at the bottom so the restored order isnt overwritten!!

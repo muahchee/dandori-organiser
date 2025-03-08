@@ -1,7 +1,6 @@
 //handle editing tasks after pressing "proceed"
-import { taskStorageKey, sortableKey } from "./taskStorageKey.js";
 import { TaskStorage } from "./taskStorage.js";
-import Sortable from "sortablejs";
+
 
 
 export function editTask(form, taskLabel) {
@@ -22,11 +21,11 @@ export function editTask(form, taskLabel) {
 
     //EDIT STORAGE
 
+    //edit taskStorage
+    new TaskStorage("", newLabel, taskLabel).editStoredTask()
 
-    new TaskStorage("", newLabel, taskStorageKey, taskLabel).editStoredTask()
 
-
-    //edit dom
+    //EDIT DOM  
     taskLabel.textContent = newLabel;
  
     
