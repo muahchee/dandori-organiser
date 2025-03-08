@@ -5,11 +5,9 @@ import { taskStorageKey } from "./taskStorageKey.js";
 
 export class TaskCreator {
 
-  constructor(form, storageKey) {
+  constructor(form) {
 
     this.form = form;
-
-    this.storageKey = taskStorageKey;
 
   }
 
@@ -19,11 +17,11 @@ export class TaskCreator {
     this.firstTaskText = "First Task!"
 
     //prevents duplicate first tasks
-    if (localStorage.getItem(this.storageKey) === null){
+    if (localStorage.getItem(taskStorageKey) === null){
 
       this.firstTask = new TaskDOM("First Task!").createTask();
 
-      new TaskStorage("first", "First Task!", this.storageKey).storeTask();
+      new TaskStorage("first", "First Task!", taskStorageKey).storeTask();
     }
 
   }
@@ -44,7 +42,7 @@ export class TaskCreator {
         
         //storing into local storage
 
-        new TaskStorage(taskdom, value, this.storageKey).storeTask()
+        new TaskStorage(taskdom, value).storeTask()
   
       }
   

@@ -7,7 +7,6 @@ import { TaskCreator } from "./scripts/taskCreator.js";
 
 import { TaskRestorer } from "./scripts/taskRestorer.js";
 
-import { taskStorageKey } from "./scripts/taskStorageKey.js";
 import { sortableList } from "./scripts/sortableList.js";
 
 //----------------------------//

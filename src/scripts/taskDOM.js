@@ -101,7 +101,7 @@ export class TaskDOM {
     //to be used as the key for storage 
     this.taskIndex = this._makeUniqueID();
 
-    // this.task.setAttribute("data-id", this.taskIndex);
+    this.task.setAttribute("uniqueID", this.taskIndex);
 
 
     //open option menu

@@ -12,6 +12,8 @@ export class TaskStorage {
     this.storageKey = taskStorageKey;
 
     this.taskLabel = taskLabel;
+
+    this.DOMtaskList = document.querySelector(".task-list")
  
   }
 
@@ -53,10 +55,21 @@ export class TaskStorage {
     //adding new pairs to localStorage, save pairs as key/value 
     currentTaskList[this.id] = this.formValue;
 
-    //convert to string when saving to stroage
+    //adding to sortable storage
+    let sortableString = localStorage.getItem(sortableKey);
+    let sortableArr = Array.from(this._splitSortableString(sortableString));
+
+    //select the task using created task using unique id attribute
+    let DOMtaskBeingAdded = this.DOMtaskList.querySelector(`[uniqueid="${this.id}"]`);
+
+    let newId = this._generateId(DOMtaskBeingAdded)
+    sortableArr.push(newId);
+
+    //convert to string when saving to task stroage
     localStorage.setItem(this.storageKey, JSON.stringify(currentTaskList));
 
-    console.log(JSON.parse(localStorage.getItem(this.storageKey)))
+    //save to storage
+    localStorage.setItem(sortableKey, sortableArr.join("|"))
 
   }
 
@@ -70,34 +83,24 @@ export class TaskStorage {
 
     currentTaskList[keyOfOldLabel] = this.formValue
 
-    
+    let newId = this._generateId(this.taskLabel)
 
     //--updating sortable list in storage--
-
     let sortableString = localStorage.getItem(sortableKey);
+
+    //position in task
+    this.currentIndex = this._getCurrentIndex(currentTaskList, keyOfOldLabel)
 
     let sortableArr = Array.from(this._splitSortableString(sortableString));
 
-    //position in task
+    sortableArr.splice(this.currentIndex, 1, newId);
 
-    this.currentIndex = this._getCurrentIndex(currentTaskList, keyOfOldLabel)
-
-    //position in sortable Arr
-
-    this.newId = this._generateId(this.taskLabel)
-
-    sortableArr.splice(this.currentIndex, 1, this.newId);
-
-    // console.log("sortable from taskStorage " + localStorage.getItem(sortableKey))
-
-
-    //pushing changes to both
-
+    //----pushing changes to both----
     localStorage.setItem(this.storageKey, JSON.stringify(currentTaskList));
 
     //only update sortable storage if it exists
     if (localStorage.getItem(sortableKey)){
-      localStorage.setItem(sortableKey, JSON.stringify(sortableArr.join("|")))
+      localStorage.setItem(sortableKey, sortableArr.join("|"))
     }
     
   }
