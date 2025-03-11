@@ -7,8 +7,6 @@ import { TaskCreator } from "./scripts/taskCreator.js";
 
 import { TaskRestorer } from "./scripts/taskRestorer.js";
 
-import { sortableList } from "./scripts/sortableList.js";
-
 //----------------------------//
 
 
@@ -16,8 +14,6 @@ import { sortableList } from "./scripts/sortableList.js";
 const newTaskBtn = document.querySelector("button.new-task");
 
 const newTaskDialog = new Dialog().createDialog();
-
-const list = document.querySelector(".task-list")
 
 dialogOpen(newTaskBtn, newTaskDialog);
 
@@ -29,9 +25,5 @@ new TaskCreator(newTaskDialog.firstChild).newTask();
 
 //restoring tasks from local storage
 new TaskRestorer().restoreTasks();
-
-
-//this need to be at the bottom so the restored order isnt overwritten!!
-sortableList(list)
 
 
