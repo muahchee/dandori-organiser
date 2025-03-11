@@ -1,4 +1,3 @@
-import { simulateDrag } from "./simulateDrag.js";
 import { taskStorageKey } from "./taskStorageKey.js";
 
 export class TaskStorage {

@@ -87,7 +87,9 @@ export class TaskDOM {
   //--public interfaces--
   createTask(){
 
-    this.taskList.appendChild(this.task);
+    let taskListFistChild = this.taskList.firstChild;
+    //add new task to the start of the list
+    this.taskList.insertBefore(this.task, taskListFistChild);
 
     this.task.appendChild(this.input);
     this.task.appendChild(this.label);
