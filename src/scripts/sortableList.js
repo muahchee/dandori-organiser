@@ -26,6 +26,14 @@ export function sortableList(list) {
         let order = sortable.toArray();
         localStorage.setItem(sortable.options.group.name, order.join('|'));
       }
+    },
+    onSort: function (evt) {
+      //selects task item
+      console.log(evt.item)
+      //old position index
+      console.log("old index = " + evt.oldIndex)
+      //selects task list
+      console.log(evt.from)
     }
   })
   

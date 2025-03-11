@@ -10,7 +10,9 @@ import { editTask } from "./editTask.js";
 
 
 export class TaskDOM {
-  constructor (taskContent){
+  constructor (taskContent, uniqueID){
+
+    this.uniqueID = uniqueID || this._makeUniqueID();
 
     this.dialog = new Dialog().createDialog();
 
@@ -99,9 +101,8 @@ export class TaskDOM {
 
     //--give unique number id to each task item--
     //to be used as the key for storage 
-    this.taskIndex = this._makeUniqueID();
 
-    this.task.setAttribute("uniqueID", this.taskIndex);
+    this.task.setAttribute("uniqueID", this.uniqueID);
 
 
     //open option menu
@@ -131,6 +132,6 @@ export class TaskDOM {
     editTask(this.dialog.firstChild, this.label);
 
 
-    return this.taskIndex
+    return this.uniqueID
   };
 };

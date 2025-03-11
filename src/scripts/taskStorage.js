@@ -83,7 +83,7 @@ export class TaskStorage {
 
     currentTaskList[keyOfOldLabel] = this.formValue
 
-    let newId = this._generateId(this.taskLabel)
+    let newId = this._generateId(this.taskLabel)z
 
     //--updating sortable list in storage--
     let sortableString = localStorage.getItem(sortableKey);

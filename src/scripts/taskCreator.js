@@ -21,7 +21,7 @@ export class TaskCreator {
 
       this.firstTask = new TaskDOM("First Task!").createTask();
 
-      new TaskStorage("first", "First Task!", taskStorageKey).storeTask();
+      new TaskStorage(this.firstTask, "First Task!", taskStorageKey).storeTask();
     }
 
   }

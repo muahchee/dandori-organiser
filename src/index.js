@@ -21,19 +21,17 @@ const list = document.querySelector(".task-list")
 
 dialogOpen(newTaskBtn, newTaskDialog);
 
+//initial task
+new TaskCreator(newTaskDialog.firstChild).initialTask();
 
 //add event listener to new task dialog form
 new TaskCreator(newTaskDialog.firstChild).newTask();
-
-//initial task
-new TaskCreator(newTaskDialog.firstChild).initialTask();
 
 //restoring tasks from local storage
 new TaskRestorer().restoreTasks();
 
 
 //this need to be at the bottom so the restored order isnt overwritten!!
-const sortedList = sortableList(list)
+sortableList(list)
 
-console.log(sortedList)
 
