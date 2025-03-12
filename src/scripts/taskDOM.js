@@ -7,6 +7,7 @@ import { dialogOpen } from "./dialogState.js";
 import { checkboxStates } from "./checkboxStates.js";
 
 import { editTask } from "./editTask.js";
+import { deleteTask } from "./deleteTask.js";
 
 
 export class TaskDOM {
@@ -132,6 +133,9 @@ export class TaskDOM {
     //i dont thing this should be the task's responsibility. need to seperate this somehow...
 
     editTask(this.dialog.firstChild, this.label);
+    
+
+    deleteTask(this.deleteBtn, this.task, this.uniqueID)
 
 
     return this.uniqueID

@@ -34,10 +34,6 @@ export class TaskStorage {
 
 
   storeTask() {
-    //--storing task text content and checkbox state---
-    //get an object from the local storage, if none exists create and object
-    // let currentTaskList = JSON.parse(localStorage.getItem(taskStorageKey)) || {};
-    // let currentCheckboxList = JSON.parse(localStorage.getItem(checkboxStateKey)) || {};
 
     //adding new pairs to localStorage, save pairs as key/value 
     this.currentTaskList[this.id] = this.formValue;
@@ -50,9 +46,6 @@ export class TaskStorage {
 
   editStoredTask() {
 
-    //--updating task list in storage---
-    // let currentTaskList = JSON.parse(localStorage.getItem(taskStorageKey));
-
     //get key of old value
     let keyOfOldLabel = this._getKeybyValue(this.currentTaskList, this.taskLabel.textContent);
 
@@ -64,7 +57,9 @@ export class TaskStorage {
   }
 
   clearStorage() {
+
     localStorage.clear();
+
   }
 
   checkOffTask() {
@@ -79,6 +74,16 @@ export class TaskStorage {
 
     this.currentCheckboxList[this.id] = false;
 
+    localStorage.setItem(checkboxStateKey, JSON.stringify(this.currentCheckboxList));
+
+  }
+
+  deleteTaskFromStorage() {
+
+    delete this.currentTaskList[this.id];
+    delete this.currentCheckboxList[this.id];
+
+    localStorage.setItem(taskStorageKey, JSON.stringify(this.currentTaskList));
     localStorage.setItem(checkboxStateKey, JSON.stringify(this.currentCheckboxList));
 
   }

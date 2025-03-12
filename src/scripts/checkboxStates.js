@@ -29,7 +29,3 @@ export function checkboxStates (input, label){
      }
    })
 }
-
-function restoreCheckbox (input, label) {
-
-}

@@ -4,9 +4,6 @@ import { TaskStorage } from "./taskStorage.js";
 
 
 export function editTask(form, taskLabel) {
-
-  let list = document.querySelector(".task-list")
-
   form.addEventListener("submit", () => {
 
     const taskFormData = new FormData(form);
@@ -31,8 +28,6 @@ export function editTask(form, taskLabel) {
     
     //reset the user input
     form.reset();
-
-    
 
   });
 

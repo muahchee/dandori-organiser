@@ -39,6 +39,4 @@ export class TaskRestorer {
     }
 
   }
-
-  // document.querySelector("div[uniqueid=bpdcrabn-fzcw-4jag-feef-gbqfycddbzfl]") 
 }
