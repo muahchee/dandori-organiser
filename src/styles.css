@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 
 *{
 --darkest: #0c2f45;
---dark: #cc4149;
+--dark: #ff353f;
 --light: #60d0f5;
 --lighter: #d8ffff;
 --lightest: #f9ffce;
@@ -182,7 +182,7 @@ input[type="checkbox"]:checked::before {
 
 /* --new task button-- */
 
-button.new-task{
+button.main-button{
   appearance: none;
   background-color: var(--darkest);
   color: var(--light);
@@ -197,16 +197,33 @@ button.new-task{
 }
 
 
-button.new-task:hover,
-button.new-task:focus{
+button.main-button:hover,
+button.main-button:focus{
   transform: scale(1.1) translate(10px); 
   opacity: 1;
 }
 
-button.new-task img{
+button.main-button img{
 
   width: 1.5rem;
   margin-bottom: -2px;
+}
+
+.reset-btn-container{
+  display: flex;
+  justify-content: flex-end;
+}
+
+button.reset-task{
+  display: flex;
+  justify-content: flex-end;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+button.reset-task:hover,
+button.reset-task:focus{
+  transform: scale(1.1) translate(-10px); 
 }
 
 button.options{

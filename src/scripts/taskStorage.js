@@ -59,4 +59,8 @@ export class TaskStorage {
     
   }
 
+  clearStorage(){
+    localStorage.clear();
+  }
+
 }
