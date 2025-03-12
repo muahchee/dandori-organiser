@@ -104,9 +104,7 @@ export class TaskDOM {
 
     //--give unique number id to each task item--
     //to be used as the key for storage 
-
     this.task.setAttribute("uniqueID", this.uniqueID);
-
 
     //open option menu
     this.optionBtn.addEventListener("click", () => {
