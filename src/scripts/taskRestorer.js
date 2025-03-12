@@ -1,13 +1,15 @@
 import { TaskDOM } from "./taskDOM.js";
-import { taskStorageKey } from "./taskStorageKey.js";
+import { checkboxStateKey, taskStorageKey } from "./localStorageKeys.js";
 
 export class TaskRestorer {
 
   constructor() {
 
-    this.storageKey = taskStorageKey;
+    this.storedTasks = JSON.parse(localStorage.getItem(taskStorageKey));
 
-    this.storedTasks = JSON.parse(localStorage.getItem(this.storageKey));
+    this.checkboxStates = JSON.parse(localStorage.getItem(checkboxStateKey));
+
+    this.taskList = document.querySelector(".task-list")
 
   }
 
@@ -17,11 +19,26 @@ export class TaskRestorer {
 
     for (const key in this.storedTasks) {
 
-      let task = new TaskDOM(this.storedTasks[key], key).createTask();
+      new TaskDOM(this.storedTasks[key], key).createTask();
+
+    }
+
+    for (const key in this.checkboxStates) {
+
+      let currentTaskInput = this.taskList.querySelector(`div[uniqueid=${key}] input`);
+      let currentTaskLabel = this.taskList.querySelector(`div[uniqueid=${key}] label`);
+
+      if (this.checkboxStates[key] === true){
+
+        currentTaskInput.checked = true;
+        
+        currentTaskLabel.style.textDecoration = "line-through";
+
+      }
 
     }
 
   }
 
-
+  // document.querySelector("div[uniqueid=bpdcrabn-fzcw-4jag-feef-gbqfycddbzfl]") 
 }

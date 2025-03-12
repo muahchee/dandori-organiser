@@ -1,7 +1,7 @@
 
 import { TaskDOM } from "./taskDOM.js";
 import { TaskStorage } from "./taskStorage.js";
-import { taskStorageKey } from "./taskStorageKey.js";
+import { taskStorageKey } from "./localStorageKeys.js";
 
 export class TaskCreator {
 

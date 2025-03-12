@@ -1,19 +1,21 @@
-import { taskStorageKey } from "./taskStorageKey.js";
+import { checkboxStateKey, taskStorageKey } from "./localStorageKeys.js";
 
 export class TaskStorage {
 
-  constructor(id, formValue, taskLabel) {
+  constructor(uniqueId, formValue, taskLabel) {
     
-    this.id = id;
+    this.id = uniqueId;
 
-    //new label
+    //new label from form input
     this.formValue = formValue;
-
-    this.storageKey = taskStorageKey;
 
     this.taskLabel = taskLabel;
 
     this.DOMtaskList = document.querySelector(".task-list")
+
+    //get an object from the local storage, if none exists create and object
+    this.currentTaskList = JSON.parse(localStorage.getItem(taskStorageKey)) || {};
+    this.currentCheckboxList = JSON.parse(localStorage.getItem(checkboxStateKey)) || {};
  
   }
 
@@ -32,35 +34,53 @@ export class TaskStorage {
 
 
   storeTask() {
-    
+    //--storing task text content and checkbox state---
     //get an object from the local storage, if none exists create and object
-    let currentTaskList = JSON.parse(localStorage.getItem(this.storageKey)) || {};
+    // let currentTaskList = JSON.parse(localStorage.getItem(taskStorageKey)) || {};
+    // let currentCheckboxList = JSON.parse(localStorage.getItem(checkboxStateKey)) || {};
 
     //adding new pairs to localStorage, save pairs as key/value 
-    currentTaskList[this.id] = this.formValue;
+    this.currentTaskList[this.id] = this.formValue;
+    this.currentCheckboxList[this.id] = false;
 
     //convert to string when saving to task stroage
-    localStorage.setItem(this.storageKey, JSON.stringify(currentTaskList));
-
+    localStorage.setItem(taskStorageKey, JSON.stringify(this.currentTaskList));
+    localStorage.setItem(checkboxStateKey, JSON.stringify(this.currentCheckboxList));
   }
 
   editStoredTask() {
 
     //--updating task list in storage---
-    let currentTaskList = JSON.parse(localStorage.getItem(this.storageKey));
+    // let currentTaskList = JSON.parse(localStorage.getItem(taskStorageKey));
 
     //get key of old value
-    let keyOfOldLabel = this._getKeybyValue(currentTaskList, this.taskLabel.textContent);
+    let keyOfOldLabel = this._getKeybyValue(this.currentTaskList, this.taskLabel.textContent);
 
-    currentTaskList[keyOfOldLabel] = this.formValue
+    this.currentTaskList[keyOfOldLabel] = this.formValue
     
     //----pushing changes to both----
-    localStorage.setItem(this.storageKey, JSON.stringify(currentTaskList));
+    localStorage.setItem(taskStorageKey, JSON.stringify(this.currentTaskList));
     
   }
 
-  clearStorage(){
+  clearStorage() {
     localStorage.clear();
+  }
+
+  checkOffTask() {
+
+    this.currentCheckboxList[this.id] = true;
+
+    localStorage.setItem(checkboxStateKey, JSON.stringify(this.currentCheckboxList));
+
+  }
+
+  uncheckTask() {
+
+    this.currentCheckboxList[this.id] = false;
+
+    localStorage.setItem(checkboxStateKey, JSON.stringify(this.currentCheckboxList));
+
   }
 
 }

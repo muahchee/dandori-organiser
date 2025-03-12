@@ -2,25 +2,34 @@
 
 import { pikminCrossOut } from "./pikmin-noises.js";
 import { pikminUncross } from "./pikmin-noises.js";
+import { TaskStorage } from "./taskStorage.js";
 
 export function checkboxStates (input, label){
 
    return input.addEventListener("click", () => {
 
+    const currentTaskUniqueID = input.parentElement.getAttribute("uniqueid");
+
      if (input.checked === true){
 
-       label.style.textDecoration = "line-through";
+      label.style.textDecoration = "line-through";
 
-       pikminCrossOut.play();
+      pikminCrossOut.play();
 
+      new TaskStorage(currentTaskUniqueID).checkOffTask();
 
      } else {
 
-       label.style.textDecoration = "none";
+      label.style.textDecoration = "none";
 
-       pikminUncross.play();
+      pikminUncross.play();
+
+      new TaskStorage(currentTaskUniqueID).uncheckTask();
 
      }
    })
+}
+
+function restoreCheckbox (input, label) {
 
 }
