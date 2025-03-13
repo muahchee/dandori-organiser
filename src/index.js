@@ -25,7 +25,6 @@ dialogOpen(newTaskBtn, newTaskDialog);
 //restoring tasks from local storage
 new TaskRestorer().restoreTasks();
 
-
 //initial task
 new TaskCreator(newTaskDialog.firstChild).initialTask();
 
